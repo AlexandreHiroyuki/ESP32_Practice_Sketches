@@ -1,7 +1,7 @@
 #include <Arduino.h>
+#include <WiFi.h>
 
-// built in led: 2
-// led digital: 32
+#include "./env.h"
 
 #if CONFIG_FREERTOS_UNICORE
 static const BaseType_t app_cpu = 0;
@@ -23,22 +23,27 @@ static led_data led_1 = {2, 300};
 static led_data led_2 = {32, 1000};
 
 void toggleLED(void *parameter) {
-  led_data *led = (led_data *)parameter;
+  led_data led = *(led_data *)parameter;
 
   while (true) {
-    digitalWrite(led->pin, HIGH);
-    vTaskDelay(led->delay / portTICK_PERIOD_MS);
-    digitalWrite(led->pin, LOW);
-    vTaskDelay(led->delay / portTICK_PERIOD_MS);
+    digitalWrite(led.pin, HIGH);
+    vTaskDelay(led.delay / portTICK_PERIOD_MS);
+    digitalWrite(led.pin, LOW);
+    vTaskDelay(led.delay / portTICK_PERIOD_MS);
   }
 }
 
 void setup() {
   Serial.begin(9600);
-
   vTaskDelay(1000 / portTICK_PERIOD_MS);
 
-  Serial.println();
+  // WiFi.begin(ssid, password);
+  // while (WiFi.status() != WL_CONNECTED) {
+  //   vTaskDelay(500 / portTICK_PERIOD_MS);
+  //   Serial.println("Connecting to WiFi..");
+  // }
+  // WiFi.mode(WIFI_MODE_STA);
+  Serial.println(WiFi.macAddress());
 
   pinMode(led_1.pin, OUTPUT);
   pinMode(led_2.pin, OUTPUT);
