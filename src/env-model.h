@@ -1,7 +1,7 @@
 #ifndef ENV_H
 #define ENV_H
 
-const char* ssid = "wifi-name";
-const char* password = "wifi-password";
+const char* SSID = "wifi-name";
+const char* PASSWORD = "wifi-password";
 
 #endif
