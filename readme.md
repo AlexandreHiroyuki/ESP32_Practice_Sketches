@@ -20,4 +20,20 @@ You can easily add new variables to the header file, just copy the `env-model.h`
 
 The variables `SSID` and `PASSWORD` are used to connect to the WiFi network.
 
+## Practice Server
+
+The `/server` folder contains the server that is used to make HTTP requests to the ESP32.
+
+```
+cd server
+yarn
+yarn start
+```
+
 ## Unit Tests
+
+The `/tests` folder contains the unit tests for the sketch.
+
+[Unit Test Espressif Documentation](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/unit-tests.html)
+
+[Unit Test PlatformIO Documentation](https://docs.platformio.org/en/latest/advanced/unit-testing/index.html)
