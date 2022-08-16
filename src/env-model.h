@@ -3,5 +3,6 @@
 
 const char* SSID = "wifi-name";
 const char* PASSWORD = "wifi-password";
+const char* SERVER_HOST = "http://";
 
 #endif

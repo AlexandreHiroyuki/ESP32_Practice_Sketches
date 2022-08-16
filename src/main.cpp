@@ -25,7 +25,7 @@ static TaskHandle_t task_2 = NULL;
 static led_data led_1 = {2, 300};    // BUILT_IN LED
 static led_data led_2 = {32, 1000};  // DIGITAL LED
 
-static const server_address server = {.host_name = "http://192.168.0.138:3333"};
+static const server_address server = {.host_name = SERVER_HOST};
 
 WiFiClient client;
 
